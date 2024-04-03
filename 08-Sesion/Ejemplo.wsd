@@ -1,0 +1,27 @@
+@startuml
+autonumber
+skinparam MinClassWidth 200
+skinparam ParticipantPadding 50
+skinparam sequence {
+    ParticipantBorderColor brown
+    ParticipantBackgroundColor khaki
+}
+box "Diagrama de Secuencia - CU 001 - Biblioteca" #White
+actor "Lector"
+actor "Bibliotecario"
+participant "Sistema"
+participant "Almacen"
+
+"Lector" [#0000FF]-> "Bibliotecario" : Solicitar préstamo (Libro)
+"Bibliotecario" [#0000FF]-> "Sistema" : Revisar existencia (Libro)
+"Sistema" [#0000FF]-> "Bibliotecario" : Confirmar existencia (Libro)
+"Bibliotecario" [#0000FF]-> "Lector" : Preguntar datos
+"Lector" [#0000FF]-> "Bibliotecario" : Entregar datos (Préstamo)
+"Bibliotecario" [#0000FF]-> "Sistema" : Registrar datos
+"Sistema" [#0000FF]-> "Almacen" : Buscar (Libro)
+"Almacen" [#0000FF]-> "Bibliotecario" : Confirmar (Libro)
+"Bibliotecario" [#0000FF]-> "Lector" : Entregar (Libro)
+end box
+
+@endum
+@enduml
